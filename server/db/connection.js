@@ -1,6 +1,6 @@
-const mysql2 = require("mysql2")
+const mysql = require("mysql2")
 
-const conn = mysql2.createConnection({
+const conn = mysql.createConnection({
     user:"root",
     host:"localhost",
     password:"iamsrkfan@10",
@@ -12,3 +12,5 @@ conn.connect((error) =>{
     else console.log("Database is connected to mySQL")
 })
 
+
+module.exports = conn

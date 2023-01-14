@@ -3,6 +3,7 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import axios from 'axios'
+import { BACKEND_URL } from "../service/helper";
 
 const Register = () => {
   const [fname, setFname] = useState("");
@@ -26,12 +27,28 @@ const Register = () => {
 
     const config = {
         headers:{
-            "Content-Type":"multipart/form-data"
+            "Content-Type":"multipart/form-data application/json"
+
         }
     }
 
-    const res = await axios.post("/register",formData,config)
+    const res = await axios.post(`${BACKEND_URL}/register`,formData,config)
     console.log(res)
+
+    // const res = await fetch(`${BACKEND_URL}/register`,{
+    //   method:"POST",
+    //   headers:{
+    //     "Content-Type":"multipart/form-data",
+    //     boundary:"yet another boundary"
+
+    //   },
+    //   body:JSON.stringify({formData})
+    // })
+
+    // const data= await res.json()
+    // console.log("Data",data);
+    // setFile("")
+    // setFname("")
   };
 
   return (
